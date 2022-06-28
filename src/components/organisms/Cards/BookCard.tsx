@@ -14,7 +14,6 @@ import { customStyles } from '../../../theme/mainTheme';
 import { Box, CardActionArea, Grid, Stack } from '@mui/material';
 import AddToLibrary from '../../molecules/AddToLibrary/Index';
 import { useNavigate } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
 
 interface BookCardProps {
   id: number;
