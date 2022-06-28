@@ -17,6 +17,19 @@ const bookDetail = {
   category: 'entrepreneurship',
   subcategory: 'Featured',
 };
+const bookDetail2 = {
+  id: 10,
+  finished: true,
+  inLibrary: false,
+  imgsrc: 'bringyourhumantowork.png',
+  bookName: 'Bring Your Human To Work',
+  authorName: 'Eric Keswin',
+  time: '13 minute read',
+  nReads: '1.9k reads',
+  isBookReadAvailable: true,
+  category: 'entrepreneurship',
+  subcategory: 'Featured',
+};
 
 export default {
   title: 'organism/BookCard',
@@ -39,8 +52,8 @@ CardInLibrary.args = {
 };
 
 export const CardNotInLibrary = Template.bind({});
-CardInLibrary.args = {
-  book: bookDetail,
+CardNotInLibrary.args = {
+  book: bookDetail2,
   callingLocation: 'notinlibrary',
   onClickHandler: {},
 };
