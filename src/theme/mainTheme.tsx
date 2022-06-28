@@ -345,5 +345,17 @@ var customStyles = makeStyles({
     fontSize: '16px',
     lineHeight: '20px',
   },
+  finishedReadButton: {
+    background: 'none',
+    color: '#0365F2',
+    borderRadius: '0px 0px 8px 8px',
+    textTransform: 'none',
+    width: '100%',
+    fontWeight: 500,
+    '&:hover': {
+      backgroundColor: '#F1F6F4',
+    },
+    marginBottom: '6px',
+  },
 });
 export { customStyles };

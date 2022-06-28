@@ -15,8 +15,8 @@
     },
     {
       "id": 2,
-      "finished": false,
-      "inLibrary": true,
+      "finished": true,
+      "inLibrary": false,
       "imgsrc": "employee_to_entrepreneur.jpg",
       "bookName": "Employee to Entrepreneur",
       "authorName": "Steve Glaveski",
@@ -92,7 +92,7 @@
     },
     {
       "id": 8,
-      "finished": false,
+      "finished": true,
       "inLibrary": true,
       "imgsrc": "eatbetterfeelbetter.png",
       "bookName": "Eat Better, Feel Better",
@@ -119,7 +119,7 @@
     {
       "id": 10,
       "finished": false,
-      "inLibrary": false,
+      "inLibrary": true,
       "imgsrc": "beingboss.png",
       "bookName": "Being Boss",
       "authorName": "Kathleen Shannon and Emily...",

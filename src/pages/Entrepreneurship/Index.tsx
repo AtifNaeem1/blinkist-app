@@ -88,7 +88,7 @@ const Index = () => {
             >
               {' '}
               {bookList.map(
-                (book: {
+                (books: {
                   id: number;
                   finished: boolean;
                   inLibrary: boolean;
@@ -96,6 +96,7 @@ const Index = () => {
                   bookName: string;
                   authorName: string;
                   title: string;
+                  time: string;
                   nReads: string;
                   isBookReadAvailable: boolean;
                   category: string;
@@ -103,18 +104,9 @@ const Index = () => {
                 }) => {
                   return (
                     <BookCard
-                      key={book.id}
-                      id={book.id}
-                      finished={book.finished}
-                      inLibrary={book.inLibrary}
-                      imgsrc={book.imgsrc}
-                      bookName={book.bookName}
-                      authorName={book.authorName}
-                      time={book.title}
-                      nReads={book.nReads}
-                      isBookReadAvailable={book.isBookReadAvailable}
-                      category={book.category}
-                      subcategory={book.subcategory}
+                      book={books}
+                      callingLocation="entrepreneurship"
+                      onClickHandler={() => {}}
                     />
                   );
                 }

@@ -17,6 +17,7 @@ const Index = (props: Props) => {
       .get('http://localhost:8000/BookList')
       .then((res) => setBooks(res.data));
   }, []);
+  console.log(books);
 
   const currentlyReadingBooks = books.filter((book: any) => {
     return book.finished === false && book.inLibrary === true;
@@ -48,18 +49,9 @@ const Index = (props: Props) => {
           currentlyReadingBooks.map((book: any) => {
             return (
               <BookCard
-                key={book.id}
-                id={book.id}
-                finished={book.finished}
-                inLibrary={book.inLibrary}
-                imgsrc={book.imgsrc}
-                bookName={book.bookName}
-                authorName={book.authorName}
-                time={book.title}
-                nReads={book.nReads}
-                isBookReadAvailable={book.isBookReadAvailable}
-                category={book.category}
-                subcategory={book.subcategory}
+                book={book}
+                callingLocation={props.location}
+                onClickHandler={() => {}}
               />
             );
           })}
@@ -69,18 +61,9 @@ const Index = (props: Props) => {
           finishedBooks.map((book: any) => {
             return (
               <BookCard
-                key={book.id}
-                id={book.id}
-                finished={book.finished}
-                inLibrary={book.inLibrary}
-                imgsrc={book.imgsrc}
-                bookName={book.bookName}
-                authorName={book.authorName}
-                time={book.title}
-                nReads={book.nReads}
-                isBookReadAvailable={book.isBookReadAvailable}
-                category={book.category}
-                subcategory={book.subcategory}
+                book={book}
+                callingLocation={props.location}
+                onClickHandler={() => {}}
               />
             );
           })}
@@ -89,18 +72,9 @@ const Index = (props: Props) => {
           subcategoryBooks.map((book: any) => {
             return (
               <BookCard
-                key={book.id}
-                id={book.id}
-                finished={book.finished}
-                inLibrary={book.inLibrary}
-                imgsrc={book.imgsrc}
-                bookName={book.bookName}
-                authorName={book.authorName}
-                time={book.title}
-                nReads={book.nReads}
-                isBookReadAvailable={book.isBookReadAvailable}
-                category={book.category}
-                subcategory={book.subcategory}
+                book={book}
+                callingLocation={props.location}
+                onClickHandler={() => {}}
               />
             );
           })}

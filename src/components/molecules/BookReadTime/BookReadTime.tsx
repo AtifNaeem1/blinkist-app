@@ -32,11 +32,7 @@ const BookReadTime = (props: BookReadTimeProps) => {
 export const TotalReads = () => (
   <div style={{ display: 'flex', alignItems: 'center' }}>
     <PersonOutlineIcon fontSize="small" color="action" />
-    <TypographyComponent
-      variant="caption"
-      color="gray"
-      fontSize="14px"
-    >
+    <TypographyComponent variant="caption" color="gray">
       1.9k reads
     </TypographyComponent>
   </div>
