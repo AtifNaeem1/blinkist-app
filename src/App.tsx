@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import {
+  StyledEngineProvider,
+  ThemeProvider,
+} from '@mui/material/styles';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
 import './App.css';
+
+import customTheme from './theme/mainTheme';
+import EntrepreneurPage from './pages/Entrepreneurship/Index';
+import MyLibrary from './pages/MyLibrary/Index';
+import BookDetail from './pages/BookDetail/Index';
+import Template from './components/templates/BlinkistTemplate';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={customTheme}>
+        <BrowserRouter>
+          <Template>
+            <Routes>
+              <Route path="/" element={<MyLibrary />} />
+              <Route
+                path="/entrepreneurship-page"
+                element={<EntrepreneurPage />}
+              />
+              <Route
+                path="/bookDetails/:id"
+                element={<BookDetail />}
+              />
+            </Routes>
+          </Template>
+        </BrowserRouter>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 
