@@ -131,8 +131,8 @@
     },
     {
       "id": 11,
-      "finished": false,
-      "inLibrary": false,
+      "finished": true,
+      "inLibrary": true,
       "imgsrc": "beyondentrepreneurship.png",
       "bookName": "Beyond Entrepreneurship",
       "authorName": "Jim Collins & Bill Lazier",
