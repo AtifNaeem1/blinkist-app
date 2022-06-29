@@ -15,8 +15,8 @@
     },
     {
       "id": 2,
-      "finished": true,
-      "inLibrary": false,
+      "finished": false,
+      "inLibrary": true,
       "imgsrc": "employee_to_entrepreneur.jpg",
       "bookName": "Employee to Entrepreneur",
       "authorName": "Steve Glaveski",
@@ -28,7 +28,7 @@
     },
     {
       "id": 3,
-      "finished": false,
+      "finished": true,
       "inLibrary": true,
       "imgsrc": "doesnthurttoask.png",
       "bookName": "Doesn’t Hurt to Ask",
@@ -41,7 +41,7 @@
     },
     {
       "id": 4,
-      "finished": true,
+      "finished": false,
       "inLibrary": true,
       "imgsrc": "thefateoffood.png",
       "bookName": "The Fate of Food",
@@ -67,7 +67,7 @@
     },
     {
       "id": 6,
-      "finished": false,
+      "finished": true,
       "inLibrary": true,
       "imgsrc": "lovingyourbusiness.png",
       "bookName": "Loving Your Business",
@@ -79,7 +79,7 @@
     },
     {
       "id": 7,
-      "finished": false,
+      "finished": true,
       "inLibrary": true,
       "imgsrc": "thelonelycentury.png",
       "bookName": "The Lonely Century",
@@ -92,7 +92,7 @@
     },
     {
       "id": 8,
-      "finished": true,
+      "finished": false,
       "inLibrary": true,
       "imgsrc": "eatbetterfeelbetter.png",
       "bookName": "Eat Better, Feel Better",
@@ -131,7 +131,7 @@
     },
     {
       "id": 11,
-      "finished": true,
+      "finished": false,
       "inLibrary": true,
       "imgsrc": "beyondentrepreneurship.png",
       "bookName": "Beyond Entrepreneurship",
