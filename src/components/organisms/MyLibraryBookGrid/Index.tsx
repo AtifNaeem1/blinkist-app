@@ -17,7 +17,27 @@ const Index = (props: Props) => {
       .get('http://localhost:8000/BookList')
       .then((res) => setBooks(res.data));
   }, []);
-  console.log(books);
+  // console.log(books);
+
+  const handleReadButton = async (id: number) => {
+    await axios.patch(`http://localhost:8000/BookList/${id}`, {
+      finished: false,
+      inLibrary: true,
+    });
+    await axios.get(`http://localhost:8000/BookList`).then((res) => {
+      setBooks(res.data);
+    });
+  };
+
+  const handleFinishButton = async (id: number) => {
+    await axios.patch(`http://localhost:8000/BookList/${id}`, {
+      finished: true,
+      inLibrary: true,
+    });
+    await axios.get(`http://localhost:8000/BookList`).then((res) => {
+      setBooks(res.data);
+    });
+  };
 
   const currentlyReadingBooks = books.filter((book: any) => {
     return book.finished === false && book.inLibrary === true;
@@ -51,7 +71,7 @@ const Index = (props: Props) => {
               <BookCard
                 book={book}
                 callingLocation={props.location}
-                onClickHandler={() => {}}
+                onClickHandler={handleFinishButton}
               />
             );
           })}
@@ -63,7 +83,7 @@ const Index = (props: Props) => {
               <BookCard
                 book={book}
                 callingLocation={props.location}
-                onClickHandler={() => {}}
+                onClickHandler={handleReadButton}
               />
             );
           })}
@@ -74,7 +94,7 @@ const Index = (props: Props) => {
               <BookCard
                 book={book}
                 callingLocation={props.location}
-                onClickHandler={() => {}}
+                onClickHandler={handleReadButton}
               />
             );
           })}

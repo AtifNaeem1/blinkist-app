@@ -13,9 +13,8 @@ import { customStyles } from '../../../theme/mainTheme';
 
 import { Box, CardActionArea, Grid, Stack } from '@mui/material';
 import AddToLibrary from '../../molecules/AddToLibrary/Index';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import FinishedReadButton from '../../molecules/FinishedReadAgainButton/Index';
-import axios from 'axios';
 
 interface BookCardProps {
   id: number;
@@ -37,31 +36,7 @@ export default function BookCard(props: {
   onClickHandler: any;
 }) {
   const classes = customStyles();
-  const navigate = useNavigate();
   let link = '/bookDetails/' + props.book.id;
-
-  const handleReadButton = async () => {
-    await axios.patch(
-      `http://localhost:8000/BookList/${props.book.id}`,
-      {
-        finished: false,
-        inLibrary: true,
-      }
-    );
-    navigate(`/BookDetails/${props.book.id}`);
-  };
-
-  const handleFinishButton = async () => {
-    await axios.patch(
-      `http://localhost:8000/BookList/${props.book.id}`,
-      {
-        finished: true,
-        inLibrary: true,
-      }
-    );
-
-    navigate(`/BookDetails/${props.book.id}`);
-  };
 
   return (
     <Card className={classes.Card}>
@@ -102,7 +77,9 @@ export default function BookCard(props: {
               >
                 {props.callingLocation === 'library' ? (
                   <FinishedReadButton
-                    handleClick={handleFinishButton}
+                    handleClick={() =>
+                      props.onClickHandler(props.book.id)
+                    }
                     label="Finished"
                   />
                 ) : (
@@ -139,7 +116,9 @@ export default function BookCard(props: {
               >
                 {props.callingLocation === 'library' ? (
                   <FinishedReadButton
-                    handleClick={handleReadButton}
+                    handleClick={() =>
+                      props.onClickHandler(props.book.id)
+                    }
                     label="Read again"
                   />
                 ) : (
@@ -162,9 +141,7 @@ export default function BookCard(props: {
         {props.book.inLibrary === false &&
           props.book.category === 'entrepreneurship' && (
             <AddToLibrary
-              handleClick={() =>
-                navigate(`/bookDetails/${props.book.id}`)
-              }
+              handleClick={() => props.onClickHandler(props.book.id)}
             />
           )}
       </CardActionArea>
