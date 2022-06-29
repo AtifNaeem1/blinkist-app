@@ -13,7 +13,9 @@ import { customStyles } from '../../../theme/mainTheme';
 
 import { Box, CardActionArea, Grid, Stack } from '@mui/material';
 import AddToLibrary from '../../molecules/AddToLibrary/Index';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import FinishedReadButton from '../../molecules/FinishedReadAgainButton/Index';
+import axios from 'axios';
 
 interface BookCardProps {
   id: number;
@@ -29,92 +31,140 @@ interface BookCardProps {
   subcategory: string;
 }
 
-export default function BookCard(props: BookCardProps) {
+export default function BookCard(props: {
+  book: BookCardProps;
+  callingLocation: string;
+  onClickHandler: any;
+}) {
   const classes = customStyles();
   const navigate = useNavigate();
+  let link = '/bookDetails/' + props.book.id;
+
+  const handleReadButton = async () => {
+    await axios.patch(
+      `http://localhost:8000/BookList/${props.book.id}`,
+      {
+        finished: false,
+        inLibrary: true,
+      }
+    );
+    navigate(`/BookDetails/${props.book.id}`);
+  };
+
+  const handleFinishButton = async () => {
+    await axios.patch(
+      `http://localhost:8000/BookList/${props.book.id}`,
+      {
+        finished: true,
+        inLibrary: true,
+      }
+    );
+
+    navigate(`/BookDetails/${props.book.id}`);
+  };
 
   return (
     <Card className={classes.Card}>
-      <CardActionArea
-        href={`http://localhost:3000/bookDetails/${props.id}`}
-      >
-        <CardMedia
-          component="img"
-          height="262"
-          width="292"
-          image={require(`../../../assets/Images/${props.imgsrc}`)}
-          alt="green iguana"
-        />
+      <CardActionArea>
+        <NavLink to={link}>
+          <CardMedia
+            component="img"
+            height="262"
+            width="292"
+            image={require(`../../../assets/Images/${props.book.imgsrc}`)}
+            alt="green iguana"
+          />
+        </NavLink>
+
         <CardContent>
           <TypographyComponent
             noWrap={true}
             variant="subtitle1"
-            children={props.bookName}
+            children={props.book.bookName}
             className={classes.bookTitle}
           />
           <TypographyComponent
             variant="body1"
-            children={props.authorName}
+            children={props.book.authorName}
             className={classes.authorName}
           />
           <Stack direction="row" className={classes.bookReads}>
             <BookReadTime readTime="15-minute read" />
-            {props.isBookReadAvailable && <TotalReads />}
+            {props.book.isBookReadAvailable && <TotalReads />}
           </Stack>
         </CardContent>
-        {props.finished === false && props.inLibrary === true && (
-          <div>
-            <CardActions
-              sx={{ display: 'flex', justifyContent: 'flex-end' }}
-            >
-              <IconButton aria-label="hamburger">
-                <MoreHorizIcon />
-              </IconButton>
-            </CardActions>
+
+        {props.book.finished === false &&
+          props.book.inLibrary === true && (
             <div>
-              <Grid container direction="row">
-                <Grid
-                  item
-                  xs={4}
-                  sx={{ backgroundColor: '#E1ECFC', mt: 0 }}
-                />
-                <Grid
-                  item
-                  xs={8}
+              <CardActions
+                sx={{ display: 'flex', justifyContent: 'flex-end' }}
+              >
+                {props.callingLocation === 'library' ? (
+                  <FinishedReadButton
+                    handleClick={handleFinishButton}
+                    label="Finished"
+                  />
+                ) : (
+                  <IconButton aria-label="hamburger">
+                    <MoreHorizIcon />
+                  </IconButton>
+                )}
+              </CardActions>
+              <div>
+                <Grid container direction="row">
+                  <Grid
+                    item
+                    xs={4}
+                    sx={{ backgroundColor: '#E1ECFC', mt: 0 }}
+                  />
+                  <Grid
+                    item
+                    xs={8}
+                    sx={{
+                      background: '#F1F6F4',
+                      border: '1px solid #E1ECFC',
+                      height: '17px',
+                    }}
+                  />
+                </Grid>
+              </div>
+            </div>
+          )}
+        {props.book.finished === true &&
+          props.book.inLibrary === true && (
+            <>
+              <CardActions
+                sx={{ display: 'flex', justifyContent: 'flex-end' }}
+              >
+                {props.callingLocation === 'library' ? (
+                  <FinishedReadButton
+                    handleClick={handleReadButton}
+                    label="Read again"
+                  />
+                ) : (
+                  <IconButton aria-label="hamburger">
+                    <MoreHorizIcon />
+                  </IconButton>
+                )}
+              </CardActions>
+              <div>
+                <Box
                   sx={{
-                    background: '#F1F6F4',
+                    backgroundColor: '#E1ECFC',
                     border: '1px solid #E1ECFC',
                     height: '17px',
                   }}
                 />
-              </Grid>
-            </div>
-          </div>
-        )}
-        {props.finished === true && props.inLibrary === true && (
-          <div>
-            <CardActions
-              sx={{ display: 'flex', justifyContent: 'flex-end' }}
-            >
-              <IconButton aria-label="hamburger">
-                <MoreHorizIcon />
-              </IconButton>
-            </CardActions>
-            <div>
-              <Box
-                sx={{
-                  backgroundColor: '#E1ECFC',
-                  border: '1px solid #E1ECFC',
-                  height: '17px',
-                }}
-              />
-            </div>
-          </div>
-        )}
-        {props.inLibrary === false &&
-          props.category === 'entrepreneurship' && (
+              </div>
+            </>
+          )}
+        {props.book.inLibrary === false &&
+          props.book.category === 'entrepreneurship' && (
             <AddToLibrary
-              handleClick={() => navigate(`/bookDetails/${props.id}`)}
+              handleClick={() =>
+                navigate(`/bookDetails/${props.book.id}`)
+              }
             />
           )}
       </CardActionArea>

@@ -66,7 +66,7 @@ const Index = () => {
       .then((res) => {
         setBooks(res.data);
       });
-    // navigate('/');
+    navigate('/');
   };
 
   const handleFinishButton = async () => {
@@ -79,7 +79,7 @@ const Index = () => {
       .then((res) => {
         setBooks(res.data);
       });
-    // navigate('/');
+    navigate('/');
   };
   const nameImg = data.BookList.filter(
     (book) => book.id === Number(id)
