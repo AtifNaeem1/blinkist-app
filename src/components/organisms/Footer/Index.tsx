@@ -85,7 +85,7 @@ const index = () => {
               </Grid>
               {Editorial.map((item) => {
                 return (
-                  <Grid item>
+                  <Grid item key={Editorial.indexOf(item)}>
                     <TypographyComponent
                       variant="body2"
                       children={item}
@@ -111,7 +111,7 @@ const index = () => {
               </Grid>
               {usefulLinks.map((item) => {
                 return (
-                  <Grid item>
+                  <Grid item key={usefulLinks.indexOf(item)}>
                     <TypographyComponent
                       variant="body2"
                       children={item}
@@ -137,7 +137,7 @@ const index = () => {
               </Grid>
               {Company.map((item) => {
                 return (
-                  <Grid item>
+                  <Grid item key={Company.indexOf(item)}>
                     <TypographyComponent
                       variant="body2"
                       children={item}

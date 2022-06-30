@@ -59,7 +59,6 @@ const Index = (props: Props) => {
     >
       <Grid
         item
-        direction="row"
         rowSpacing={1}
         columnSpacing={1}
         justifyContent="center"

@@ -23,6 +23,7 @@ const BlinkistTemplate = (props: { children: any }) => {
     >
       <Grid
         item
+        container
         direction="row"
         columnGap={'36px'}
         wrap="nowrap"
