@@ -83,6 +83,7 @@ const Index = () => {
             </Grid>
             <Grid
               item
+              container
               direction="row"
               alignItems="flex-start"
               sx={{

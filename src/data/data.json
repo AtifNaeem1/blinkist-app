@@ -67,7 +67,7 @@
     },
     {
       "id": 6,
-      "finished": true,
+      "finished": false,
       "inLibrary": true,
       "imgsrc": "lovingyourbusiness.png",
       "bookName": "Loving Your Business",
@@ -79,8 +79,8 @@
     },
     {
       "id": 7,
-      "finished": true,
-      "inLibrary": true,
+      "finished": false,
+      "inLibrary": false,
       "imgsrc": "thelonelycentury.png",
       "bookName": "The Lonely Century",
       "authorName": "Noreena Hertz",
@@ -118,7 +118,7 @@
     },
     {
       "id": 10,
-      "finished": false,
+      "finished": true,
       "inLibrary": true,
       "imgsrc": "beingboss.png",
       "bookName": "Being Boss",
@@ -131,7 +131,7 @@
     },
     {
       "id": 11,
-      "finished": false,
+      "finished": true,
       "inLibrary": true,
       "imgsrc": "beyondentrepreneurship.png",
       "bookName": "Beyond Entrepreneurship",
