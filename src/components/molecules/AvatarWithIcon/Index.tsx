@@ -1,6 +1,5 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import CustomAvatar from '../../atoms/Avatars/Index';
 
@@ -11,7 +10,7 @@ interface PropsAvatarWithIcon {
 
 const Index = (props: PropsAvatarWithIcon) => {
   return (
-    <Box
+    <div
       style={{
         display: 'flex',
         width: '62px',
@@ -19,7 +18,7 @@ const Index = (props: PropsAvatarWithIcon) => {
         justifyContent: 'flex-start',
         alignItems: 'center',
       }}
-      data-testid="avatarlogin"
+      data-testid="avatarLogin"
     >
       <Button disableRipple={true} onClick={props.handleLogin}>
         <CustomAvatar children="A" />
@@ -51,7 +50,7 @@ const Index = (props: PropsAvatarWithIcon) => {
           </>
         )}
       </Button>
-    </Box>
+    </div>
   );
 };
 

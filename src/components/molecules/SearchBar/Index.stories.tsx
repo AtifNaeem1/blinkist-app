@@ -7,9 +7,13 @@ const SearchField = {
   component: SearchBar,
 } as ComponentMeta<typeof SearchBar>;
 
-const Template: ComponentStory<typeof SearchBar> = (args) => (
+const Template: ComponentStory<typeof SearchBar> = () => (
   <ThemeProvider theme={baseTheme}>
-    <SearchBar handleChange={() => {}} />
+    <SearchBar
+      handleChange={() => {
+        console.log('Search bar changed');
+      }}
+    />
   </ThemeProvider>
 );
 

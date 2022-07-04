@@ -16,5 +16,7 @@ const Template: ComponentStory<typeof Explore> = (args) => (
 
 export const ExploreMenu = Template.bind({});
 ExploreMenu.args = {
-  handleChange: () => {},
+  handleChange: () => {
+    console.log('changed');
+  },
 };

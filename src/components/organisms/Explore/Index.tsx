@@ -184,7 +184,7 @@ const Index = (props: ExploreCardProps) => {
           </Grid>
         </Grid>
 
-        <Grid item>
+        <Grid item role="Divider">
           <Divider
             sx={{
               width: '940px',
@@ -194,7 +194,13 @@ const Index = (props: ExploreCardProps) => {
           />
         </Grid>
 
-        <Grid item container spacing={1} sx={{ width: '950px' }}>
+        <Grid
+          item
+          container
+          spacing={1}
+          sx={{ width: '950px' }}
+          role="ExploreItems"
+        >
           <Grid item key={0} sm={4}>
             <Buttons
               key="Entrepreneurship"

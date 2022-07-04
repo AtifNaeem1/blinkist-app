@@ -21,5 +21,7 @@ export const NavBar = Template.bind({});
 
 NavBar.args = {
   clicked: false,
-  handleToggle: () => {},
+  handleToggle: () => {
+    console.log('changed');
+  },
 };

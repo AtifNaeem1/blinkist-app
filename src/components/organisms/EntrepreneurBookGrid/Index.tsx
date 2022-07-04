@@ -15,6 +15,7 @@ const Index = (props: Props) => {
         width: '100%',
         marginLeft: '10px',
       }}
+      role="EntrepreneurshipBookGrid"
     >
       <Box sx={{ marginLeft: '8px', marginBottom: '10px' }}>
         <TypographyComponent
@@ -22,7 +23,7 @@ const Index = (props: Props) => {
           children={props.title}
         />
       </Box>
-      <Grid item sx={{ marginTop: '20px' }}>
+      <Grid item sx={{ marginTop: '20px' }} role="BookGrid">
         <BookGrid
           status="na"
           location="Enterpreneurship Page"

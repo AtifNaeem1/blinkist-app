@@ -8,6 +8,7 @@ const Index = (props: AvtProps) => {
   return (
     <Avatar
       sx={{ width: '40px', height: '40px', bgcolor: '#69A6E3' }}
+      role="Avatar"
     >
       {props.children}
     </Avatar>

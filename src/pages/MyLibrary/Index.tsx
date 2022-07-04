@@ -11,7 +11,7 @@ const Index = () => {
   const [value, setValue] = useState('1');
 
   const handleChange = (
-    event: React.SyntheticEvent,
+    _event: React.SyntheticEvent,
     newValue: string
   ) => {
     setValue(newValue);

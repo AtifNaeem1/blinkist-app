@@ -39,7 +39,7 @@ export default function BookCard(props: {
   let link = '/bookDetails/' + props.book.id;
 
   return (
-    <Card className={classes.Card}>
+    <Card className={classes.Card} role="BookCard">
       <CardActionArea>
         <NavLink to={link}>
           <CardMedia
@@ -48,6 +48,7 @@ export default function BookCard(props: {
             width="292"
             image={require(`../../../assets/Images/${props.book.imgsrc}`)}
             alt="green iguana"
+            role="CardImage"
           />
         </NavLink>
 
