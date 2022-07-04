@@ -17,7 +17,6 @@ const Index = (props: Props) => {
       .get('http://localhost:8000/BookList')
       .then((res) => setBooks(res.data));
   }, []);
-  // console.log(books);
 
   const handleReadButton = async (id: number) => {
     await axios.patch(`http://localhost:8000/BookList/${id}`, {
@@ -56,12 +55,14 @@ const Index = (props: Props) => {
       container
       sx={{ width: '950px', alignItems: 'flex-start' }}
       direction="row"
+      role="MyLibraryBookGrid"
     >
       <Grid
         item
         rowSpacing={1}
         columnSpacing={1}
         justifyContent="center"
+        role="BookCard"
       >
         {props.status === 'reading' &&
           props.location === 'library' &&

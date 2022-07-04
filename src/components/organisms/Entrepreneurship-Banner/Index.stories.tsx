@@ -9,9 +9,7 @@ export default {
   component: EntrepreneurBanner,
 } as ComponentMeta<typeof EntrepreneurBanner>;
 
-const Template: ComponentStory<typeof EntrepreneurBanner> = (
-  args
-) => (
+const Template: ComponentStory<typeof EntrepreneurBanner> = () => (
   <ThemeProvider theme={baseTheme}>
     <MemoryRouter>
       <EntrepreneurBanner />

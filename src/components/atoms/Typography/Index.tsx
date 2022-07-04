@@ -7,6 +7,7 @@ const Index = (props: TypographyProps) => {
       className={props.className}
       width={props.width}
       noWrap={props.noWrap}
+      role="Typography"
     >
       {props.children}
     </Typography>

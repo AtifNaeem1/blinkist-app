@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,7 +16,7 @@ import AvatarWithIcon from '../../molecules/AvatarWithIcon/Index';
 import Explore from '../Explore/Index';
 import { useNavigate } from 'react-router-dom';
 
-export default function NavBar(props: {
+export default function Index(props: {
   clicked: boolean;
   handleToggle: any;
 }) {
@@ -26,6 +25,7 @@ export default function NavBar(props: {
   const [logClick, handleLogin] = useState(true);
   const classes = customStyles();
   const navigate = useNavigate();
+  console.log(clicked);
 
   return (
     <Grid
@@ -53,6 +53,7 @@ export default function NavBar(props: {
             position="static"
             elevation={0}
             className={classes.AppBar}
+            role="AppBar"
           >
             <Toolbar>
               <Button
@@ -66,6 +67,7 @@ export default function NavBar(props: {
                   component="img"
                   src={Blinkist}
                   className={classes.logo}
+                  role="logo"
                 ></Box>
               </Button>
               <Box
@@ -83,9 +85,10 @@ export default function NavBar(props: {
                     component="img"
                     src={SearchIcon}
                     sx={{ mt: 1, ml: 4 }}
+                    role="search"
                   />
                 </Button>
-                <Grid item direction="column">
+                <Grid item>
                   <Button
                     variant="text"
                     endIcon={

@@ -88,7 +88,7 @@ const Index = () => {
             >
               {' '}
               {bookList.map(
-                (books: {
+                (bookDetail: {
                   id: number;
                   finished: boolean;
                   inLibrary: boolean;
@@ -104,9 +104,11 @@ const Index = () => {
                 }) => {
                   return (
                     <BookCard
-                      book={books}
+                      book={bookDetail}
                       callingLocation="entrepreneurship"
-                      onClickHandler={() => {}}
+                      onClickHandler={() => {
+                        console.log('Handled');
+                      }}
                     />
                   );
                 }

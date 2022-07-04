@@ -4,7 +4,7 @@ interface SearchProps {
   handleChange: any;
 }
 
-const SearchBar = (props: SearchProps) => {
+const Index = (props: SearchProps) => {
   return (
     <Box
       sx={{
@@ -45,4 +45,4 @@ const SearchBar = (props: SearchProps) => {
   );
 };
 
-export default SearchBar;
+export default Index;

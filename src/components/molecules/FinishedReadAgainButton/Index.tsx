@@ -10,6 +10,7 @@ const Index = (props: { handleClick: any; label: string }) => {
       variant="text"
       className={classes.finishedReadButton}
       onClick={props.handleClick}
+      role="readFinished"
     >
       <TypographyComponent variant="body1" children={props.label} />
     </Button>

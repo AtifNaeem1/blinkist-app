@@ -53,11 +53,19 @@ const index = () => {
             rowGap={'22px'}
             role="footer-left"
           >
-            <Grid item sx={{ height: '24px', width: '100px' }}>
+            <Grid
+              item
+              sx={{ height: '24px', width: '100px' }}
+              role="footerImage"
+            >
               <img src={Blinkist} alt="Blinkist logo" />
             </Grid>
 
-            <Grid item sx={{ height: '60px', width: '370px' }}>
+            <Grid
+              item
+              sx={{ height: '60px', width: '370px' }}
+              role="footerText"
+            >
               <img src={FooterText} alt="Footer Text" />
             </Grid>
           </Grid>
@@ -68,6 +76,7 @@ const index = () => {
             columnGap={4}
             wrap="nowrap"
             className={classes.footerRight}
+            role="footer-right"
           >
             <Grid
               item

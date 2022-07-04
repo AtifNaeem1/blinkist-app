@@ -13,7 +13,10 @@ interface BookReadTimeProps {
 const BookReadTime = (props: BookReadTimeProps) => {
   const classes = customStyles();
   return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <div
+      style={{ display: 'flex', alignItems: 'center' }}
+      data-testid="BookReadTime"
+    >
       <AccessTimeIcon
         fontSize="small"
         color="action"
@@ -30,7 +33,10 @@ const BookReadTime = (props: BookReadTimeProps) => {
 };
 
 export const TotalReads = () => (
-  <div style={{ display: 'flex', alignItems: 'center' }}>
+  <div
+    style={{ display: 'flex', alignItems: 'center' }}
+    data-testid="totalReads"
+  >
     <PersonOutlineIcon fontSize="small" color="action" />
     <TypographyComponent variant="caption" color="gray">
       1.9k reads

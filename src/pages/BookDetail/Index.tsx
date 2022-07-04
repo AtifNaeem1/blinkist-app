@@ -3,12 +3,11 @@ import { customStyles } from '../../theme/mainTheme';
 import TypographyComponent from '../../components/atoms/Typography/Index';
 import BookReadTime from '../../components/molecules/BookReadTime/BookReadTime';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Buttons from '../../components/atoms/Button/Index';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { withStyles } from '@mui/styles';
-import { useNavigate } from 'react-router-dom';
 import data from '../../data/data.json';
 
 interface BookCardProps {
@@ -37,7 +36,7 @@ const Index = () => {
   const navigate = useNavigate();
 
   const handleChange = (
-    event: React.SyntheticEvent,
+    _event: React.SyntheticEvent,
     newValue: string
   ) => {
     setValue(newValue);
@@ -45,16 +44,13 @@ const Index = () => {
 
   const { id } = useParams();
 
-  const [books, setBooks] = useState<BookCardProps>();
-
-  console.log('id', id);
+  const [books, setBooks] = useState([] as any);
 
   useEffect(() => {
     axios.get(`http://localhost:8000/BookList/${id}`).then((res) => {
       setBooks(res.data);
     });
   }, [id]);
-  console.log(books?.imgsrc);
 
   const handleReadButton = async () => {
     await axios.patch(`http://localhost:8000/BookList/${id}`, {
@@ -81,6 +77,7 @@ const Index = () => {
       });
     navigate('/');
   };
+
   const nameImg = data.BookList.filter(
     (book) => book.id === Number(id)
   )[0].imgsrc;
@@ -91,13 +88,13 @@ const Index = () => {
       direction="column"
       alignItems="center"
       sx={{ width: '100%' }}
+      role="main-grid"
     >
       <Grid
         item
         container
         direction="row"
         className={classes.bookDetailPage}
-        role="main-grid"
       >
         <Grid item direction="column">
           <Box>

@@ -1,10 +1,9 @@
 import { Box, Grid } from '@mui/material';
-import React from 'react';
 import { customStyles } from '../../../theme/mainTheme';
 import BannerImg from '../../../assets/Images/banner-img.png';
 import TypographyComponent from '../../atoms/Typography/Index';
 
-const Banner = () => {
+const Index = () => {
   const classes = customStyles();
   return (
     <Grid
@@ -16,6 +15,7 @@ const Banner = () => {
         mb: '60px',
       }}
       wrap="nowrap"
+      role="EntrepreneurshipBanner"
     >
       <Grid item my={'45px'} mx={'45px'}>
         <Grid item container direction="column" rowSpacing={'15px'}>
@@ -36,7 +36,7 @@ const Banner = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item mx={'45px'}>
+      <Grid item mx={'45px'} role="BannerImage">
         <Box
           component="img"
           src={BannerImg}
@@ -47,4 +47,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Index;

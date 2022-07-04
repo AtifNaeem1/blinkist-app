@@ -85,7 +85,7 @@ const customTheme = createTheme({
 });
 export default customTheme;
 
-var customStyles = makeStyles({
+let customStyles = makeStyles({
   time: {
     display: 'flex',
     justifyContent: 'flex-start',

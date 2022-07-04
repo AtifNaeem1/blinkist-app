@@ -14,57 +14,62 @@ const BlinkistTemplate = (props: { children: any }) => {
   };
 
   return (
-    <Grid
-      container
-      direction="column"
-      alignItems="center"
-      sx={{ width: '100%' }}
-      role="Header"
-    >
+    <>
       <Grid
-        item
         container
-        direction="row"
-        columnGap={'36px'}
-        wrap="nowrap"
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          background: '#FFFFFF',
-          width: '1000px',
-        }}
+        direction="column"
+        alignItems="center"
+        sx={{ width: '100%' }}
+        role="Template"
       >
-        <AppBar
-          component="nav"
-          elevation={0}
-          sx={{ background: 'white', border: 'none' }}
-        >
-          <NavBar handleToggle={handleToggle} clicked={false} />
-        </AppBar>
-        <Backdrop
+        <Grid
+          item
+          container
+          direction="row"
+          columnGap={'36px'}
+          wrap="nowrap"
           sx={{
-            color: '#FFFFFF',
-            zIndex: (theme) => theme.zIndex.drawer + 1,
+            display: 'flex',
+            alignItems: 'center',
+            background: '#FFFFFF',
+            width: '1000px',
           }}
-          open={open}
-          onClick={handleClose}
+          role="TemplateHeader"
         >
           <AppBar
             component="nav"
             elevation={0}
             sx={{ background: 'white', border: 'none' }}
           >
-            <Toolbar>
-              <NavBar handleToggle={handleToggle} clicked={true} />
-            </Toolbar>
+            <NavBar handleToggle={handleToggle} clicked={false} />
           </AppBar>
-        </Backdrop>
+          <Backdrop
+            sx={{
+              color: '#FFFFFF',
+              zIndex: (theme) => theme.zIndex.drawer + 1,
+            }}
+            open={open}
+            onClick={handleClose}
+          >
+            <AppBar
+              component="nav"
+              elevation={0}
+              sx={{ background: 'white', border: 'none' }}
+            >
+              <Toolbar>
+                <NavBar handleToggle={handleToggle} clicked={true} />
+              </Toolbar>
+            </AppBar>
+          </Backdrop>
+        </Grid>
+        <Grid item sx={{ marginTop: '80px' }} role="main-content">
+          {props.children}
+        </Grid>
+      </Grid>{' '}
+      <Grid role="footer">
+        <Footer />
       </Grid>
-      <Grid item sx={{ marginTop: '80px' }}>
-        {props.children}
-      </Grid>
-      <Footer />
-    </Grid>
+    </>
   );
 };
 

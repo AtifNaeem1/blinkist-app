@@ -12,6 +12,7 @@ const Index = (props: { handleClick: any }) => {
       startIcon={<AddIcon />}
       className={classes.addToLib}
       onClick={props.handleClick}
+      role="AddToLib"
     >
       <TypographyComponent
         variant="body1"

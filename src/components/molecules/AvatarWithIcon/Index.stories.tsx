@@ -8,5 +8,10 @@ export default {
 } as ComponentMeta<typeof AvatarIcon>;
 
 export const AvatarWithIcon = (
-  <AvatarIcon logClick={true} handleLogin={() => {}} />
+  <AvatarIcon
+    logClick={true}
+    handleLogin={() => {
+      console.log('Avatar With icon');
+    }}
+  />
 );
