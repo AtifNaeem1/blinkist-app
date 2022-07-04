@@ -141,4 +141,21 @@ describe('Book Card', () => {
     expect(cardImage).toBeTruthy();
     expect(cardImage).toBeDefined();
   });
+
+  test('Finish timeline', () => {
+    render(
+      <Card
+        book={Book}
+        callingLocation="library"
+        onClickHandler={mockfunction}
+      />,
+      {
+        wrapper: MemoryRouter,
+      }
+    );
+    const finishedTimeline = screen.getByRole('finishedTimeline');
+    expect(finishedTimeline).toBeInTheDocument();
+    expect(finishedTimeline).toBeTruthy();
+    expect(finishedTimeline).toBeDefined();
+  });
 });
