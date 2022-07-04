@@ -2,7 +2,7 @@
   "BookList": [
     {
       "id": 1,
-      "finished": true,
+      "finished": false,
       "inLibrary": true,
       "imgsrc": "bringyourhumantowork.png",
       "bookName": "Bring Your Human To Work",
@@ -28,7 +28,7 @@
     },
     {
       "id": 3,
-      "finished": false,
+      "finished": true,
       "inLibrary": true,
       "imgsrc": "doesnthurttoask.png",
       "bookName": "Doesn’t Hurt to Ask",
