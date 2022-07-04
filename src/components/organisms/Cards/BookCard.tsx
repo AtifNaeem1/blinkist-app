@@ -90,7 +90,11 @@ export default function BookCard(props: {
                 )}
               </CardActions>
               <div>
-                <Grid container direction="row">
+                <Grid
+                  container
+                  direction="row"
+                  role="finishedTimeline"
+                >
                   <Grid
                     item
                     xs={4}
