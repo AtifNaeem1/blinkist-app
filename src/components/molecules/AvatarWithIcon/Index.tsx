@@ -40,6 +40,7 @@ const Index = (props: PropsAvatarWithIcon) => {
                 top: '50px',
                 right: '24%',
                 background: 'white',
+                textTransform: 'none',
               }}
               onClick={() => {
                 props.handleLogin();

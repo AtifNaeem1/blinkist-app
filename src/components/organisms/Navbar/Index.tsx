@@ -12,9 +12,12 @@ import {
   KeyboardArrowDown,
   KeyboardArrowUp,
 } from '@mui/icons-material';
-import AvatarWithIcon from '../../molecules/AvatarWithIcon/Index';
 import Explore from '../Explore/Index';
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import CustomAvatar from '../../atoms/Avatars/Index';
 
 export default function Index(props: {
   clicked: boolean;
@@ -25,7 +28,10 @@ export default function Index(props: {
   const [logClick, handleLogin] = useState(true);
   const classes = customStyles();
   const navigate = useNavigate();
-  console.log(clicked);
+
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
+
+  console.log(isAuthenticated);
 
   return (
     <Grid
@@ -148,10 +154,132 @@ export default function Index(props: {
                 </Button>
               </Box>
               <Box sx={{ flexGrow: 0 }}>
-                <AvatarWithIcon
-                  logClick={logClick}
-                  handleLogin={() => handleLogin(!logClick)}
-                />
+                {isAuthenticated ? (
+                  <div
+                    style={{
+                      display: 'flex',
+                      width: '62px',
+                      height: '40px',
+                      justifyContent: 'flex-start',
+                      alignItems: 'center',
+                    }}
+                    data-testid="avatarLogin"
+                  >
+                    <Button
+                      onClick={() => {
+                        handleLogin(!logClick);
+                      }}
+                      sx={{
+                        textTransform: 'none',
+                        color: '#03314B',
+                        fontSize: '16px',
+                      }}
+                    >
+                      <CustomAvatar children="A" />
+
+                      {logClick ? (
+                        <KeyboardArrowDownIcon
+                          sx={{
+                            color: '#042330',
+                            width: '24px',
+                            height: '22px',
+                          }}
+                        />
+                      ) : (
+                        <>
+                          <KeyboardArrowUpIcon
+                            sx={{
+                              color: '#042330',
+                              width: '24px',
+                              height: '22px',
+                            }}
+                          />
+                          <Button
+                            disableRipple={true}
+                            variant="contained"
+                            sx={{
+                              position: 'absolute',
+                              top: '50px',
+                              right: '24%',
+                              background: 'white',
+                              textTransform: 'none',
+                            }}
+                            onClick={() => {
+                              logout({
+                                returnTo: window.location.origin,
+                              });
+                            }}
+                          >
+                            LogOut
+                          </Button>
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      display: 'flex',
+                      width: '62px',
+                      height: '40px',
+                      justifyContent: 'flex-start',
+                      alignItems: 'center',
+                    }}
+                    data-testid="avatarLogin"
+                  >
+                    <Button
+                      onClick={() => {
+                        handleLogin(!logClick);
+                      }}
+                      sx={{
+                        textTransform: 'none',
+                        color: '#03314B',
+                        fontSize: '16px',
+                      }}
+                    >
+                      <TypographyComponent
+                        variant="body1"
+                        children="Account"
+                      />
+
+                      {logClick ? (
+                        <KeyboardArrowDownIcon
+                          sx={{
+                            color: '#042330',
+                            width: '24px',
+                            height: '22px',
+                          }}
+                        />
+                      ) : (
+                        <>
+                          <KeyboardArrowUpIcon
+                            sx={{
+                              color: '#042330',
+                              width: '24px',
+                              height: '22px',
+                            }}
+                          />
+                          <Button
+                            disableRipple
+                            variant="contained"
+                            sx={{
+                              position: 'absolute',
+                              top: '50px',
+                              right: '24%',
+                              background: 'white',
+                              textTransform: 'none',
+                            }}
+                            onClick={() => {
+                              loginWithRedirect();
+                            }}
+                          >
+                            Login
+                          </Button>
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                )}
               </Box>
             </Toolbar>
           </AppBar>
