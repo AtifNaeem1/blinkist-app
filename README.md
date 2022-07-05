@@ -44,3 +44,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+### npx json-server --watch src/data/data.json --port 8000
+
+### npm test a -- --coverage 
+
+### sudo sonar-scanner -Dsonar.login=8182944be22eac64b93464c182d4fd -Dsonar.organization=atifnaeem1 -Dsonar.projectKey=AtifNaeem1_blinkist-app -Dsonar.sources=./src -Dsonar.host.url=https://sonarcloud.io
