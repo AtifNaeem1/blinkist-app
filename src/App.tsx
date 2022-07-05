@@ -11,6 +11,7 @@ import EntrepreneurPage from './pages/Entrepreneurship/Index';
 import MyLibrary from './pages/MyLibrary/Index';
 import BookDetail from './pages/BookDetail/Index';
 import Template from './components/templates/BlinkistTemplate';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 function App() {
   return (
